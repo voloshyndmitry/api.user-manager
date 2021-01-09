@@ -1,0 +1,453 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "API for User Manager app",
+        "description": "My Project Application API",
+        "license": {
+            "name": "MIT",
+            "url": "https://opensource.org/licenses/MIT"
+        }
+    },
+    "host": "localhost:3002",
+    "basePath": "/",
+    "tags": [
+        {
+            "name": "Client Controller",
+            "description": "API for users in the system"
+        }
+    ],
+    "paths": {
+        "/login": {
+            "get": {
+                "tags": [
+                    "User Controller"
+                ],
+                "summary": "Get user id in system",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "login",
+                        "required": true,
+                        "type": "string",
+                        "description": "Test"
+                    },
+                    {
+                        "in": "query",
+                        "name": "pass",
+                        "required": true,
+                        "type": "string",
+                        "description": "Qweqwe34"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/userId"
+                        }
+                    }
+                }
+            }
+        },
+        "/user": {
+            "get": {
+                "tags": [
+                    "User Controller"
+                ],
+                "summary": "Get user in system",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "id",
+                        "required": true,
+                        "type": "string",
+                        "description": "1606760413563",
+                        "schema": {
+                            "$ref": "#/definitions/userData"
+                        }
+                    },
+                    {
+                        "in": "header",
+                        "name": "authorization",
+                        "required": true,
+                        "type": "string",
+                        "description": "token",
+                        "schema": {
+                            "$ref": "#/definitions/userData"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/User"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "User Controller"
+                ],
+                "summary": "Update user",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "id",
+                        "required": true,
+                        "type": "string",
+                        "description": "Test"
+                    },
+                    {
+                        "in": "query",
+                        "name": "name",
+                        "required": false,
+                        "type": "string",
+                        "description": "Some name"
+                    },
+                    {
+                        "in": "query",
+                        "name": "surname",
+                        "required": false,
+                        "type": "string",
+                        "description": "Some surname"
+                    },
+                    {
+                        "in": "query",
+                        "name": "phone",
+                        "required": false,
+                        "type": "string",
+                        "description": "Your phone"
+                    },
+                    {
+                        "in": "query",
+                        "name": "location",
+                        "required": false,
+                        "type": "string",
+                        "description": "Your location"
+                    },
+                    {
+                        "in": "query",
+                        "name": "specialties",
+                        "required": false,
+                        "type": "string",
+                        "description": "Job title"
+                    },
+                    {
+                        "in": "query",
+                        "name": "pass",
+                        "required": false,
+                        "type": "string",
+                        "description": "Any strong pass"
+                    },
+                    {
+                        "in": "query",
+                        "name": "email",
+                        "required": false,
+                        "type": "string",
+                        "description": "Your email"
+                    },
+                    {
+                        "in": "query",
+                        "name": "photo",
+                        "required": false,
+                        "type": "string",
+                        "description": "Link to photo"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/User"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "User Controller"
+                ],
+                "summary": "Add new user",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "user",
+                        "required": true,
+                        "type": "object",
+                        "description": "User object that needs to be added to the collection"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/User"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "User Controller"
+                ],
+                "summary": "Delete users by id in system",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "id",
+                        "required": true,
+                        "type": "string",
+                        "description": "1606760413563"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/User"
+                        }
+                    }
+                }
+            }
+        },
+        "/client": {
+            "get": {
+                "tags": [
+                    "Client Controller"
+                ],
+                "summary": "Get client by id",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "id",
+                        "required": true,
+                        "type": "string",
+                        "description": "1606760413563"
+                    },
+                    {
+                        "in": "query",
+                        "name": "doctorId",
+                        "required": true,
+                        "type": "string",
+                        "description": "1606760413563"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Client"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Client Controller"
+                ],
+                "summary": "Update client",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "Client",
+                        "required": true,
+                        "type": "json",
+                        "description": "Client object",
+                        "schema": {
+                            "$ref": "#/definitions/Client"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Client"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Client Controller"
+                ],
+                "summary": "Add new client",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "client",
+                        "required": true,
+                        "type": "object",
+                        "description": "User object that needs to be added to the collection",
+                        "schema": {
+                            "$ref": "#/definitions/Client"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Clients"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Client Controller"
+                ],
+                "summary": "Delete client by id in system",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "id",
+                        "required": true,
+                        "type": "string",
+                        "description": "1606760413563"
+                    },
+                    {
+                        "in": "body",
+                        "name": "doctorId",
+                        "required": true,
+                        "type": "string",
+                        "description": "1606760413563"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Clients"
+                        }
+                    }
+                }
+            }
+        },
+        "/clients": {
+            "get": {
+                "tags": [
+                    "Client Controller"
+                ],
+                "summary": "Get all clients in system",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "doctorId",
+                        "required": true,
+                        "type": "string",
+                        "description": "1606760413563"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Clients"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Client": {
+            "properties": {
+                "doctorId": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "surname": {
+                    "type": "string"
+                },
+                "sex": {
+                    "type": "string"
+                },
+                "age": {
+                    "type": "string"
+                },
+                "pregnancy": {
+                    "type": "string"
+                },
+                "phone": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "photo": {
+                    "type": "string"
+                }
+            }
+        },
+        "Clients": {
+            "properties": {
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Client"
+                    }
+                }
+            }
+        },
+        "userId": {
+            "properties": {
+                "userId": {
+                    "type": "string"
+                },
+                "token": {
+                    "type": "string"
+                }
+            }
+        },
+        "User": {
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "surname": {
+                    "type": "string"
+                },
+                "phone": {
+                    "type": "string"
+                },
+                "location": {
+                    "type": "string"
+                },
+                "specialties": {
+                    "type": "string"
+                },
+                "photo": {
+                    "type": "string"
+                }
+            }
+        },
+        "Users": {
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/User"
+            }
+        }
+    },
+    "schemes": [
+        "http",
+        "https"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ]
+}
